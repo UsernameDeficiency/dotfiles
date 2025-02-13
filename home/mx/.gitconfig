@@ -1,2 +1,6 @@
+[core]
+    editor = nvim
+
 [merge]
-	conflictStyle = zdiff3
+    conflictStyle = zdiff3
+
