@@ -112,7 +112,6 @@ if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
     export MOZ_ENABLE_WAYLAND=1
 else
     export MOZ_USE_XINPUT2=1
-    echo -e "\n\n bashrc stufferino \n\n"
 fi
 
 # Add root only applications to PATH
