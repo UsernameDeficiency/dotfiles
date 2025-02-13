@@ -1,4 +1,6 @@
-fastfetch
+if command -v fastfetch >/dev/null; then
+    fastfetch
+fi
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -92,4 +94,3 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ll='ls -FGhl --group-directories-first'
 alias la='ll -A'
-
