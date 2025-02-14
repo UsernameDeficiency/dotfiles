@@ -37,6 +37,8 @@
     #############
     alias = !git config -l | grep alias | cut -c 7-
     snap = !git stash push 'snapshot: $(date)' && git stash apply 'stash@{0}'
+    # Fetch and merge branch without checkout
+    upd = !git fetch origin $1:$1
 
     # Interactive add
     ai = add -i
