@@ -8,6 +8,9 @@
 [core]
     editor = nvim
 
+[diff]
+    algorithm = histogram
+
 [merge]
     conflictStyle = zdiff3
 
@@ -43,7 +46,6 @@
     # Interactive add
     ai = add -i
     #############
-    dp = diff --patience
     dk = diff --check
     dck = diff --cached --check
     #############
