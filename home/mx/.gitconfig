@@ -49,10 +49,6 @@
     dk = diff --check
     dck = diff --cached --check
     #############
-    rh = reset HEAD
-    reh = reset --hard
-    rem = reset --mixed
-    res = reset --soft
-    rehh = reset --hard HEAD
-    remh = reset --mixed HEAD
-    resh = reset --soft HEAD
+    rh = reset HEAD~
+    rehh = reset --hard HEAD~
+    resh = reset --soft HEAD~
