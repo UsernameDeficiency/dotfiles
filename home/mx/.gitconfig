@@ -12,23 +12,23 @@
     algorithm = histogram
 
 [merge]
-    conflictStyle = zdiff3
+    # zdiff3 requires git 2.35.0
+    #conflictStyle = zdiff3
 
 # Aliases are mostly taken from https://gist.github.com/pksunkara/988716
 [alias]
-    #############
+    # Fetch and merge branch without checkout
+    upd = !git fetch origin $1:$1
+    # Fetch all branches and prune removed remote branches
     fet = fetch --all --prune
-    #############
+    # Concise commit history
     lg = log --oneline --graph --decorate
     # Search by filename
     lsf = !git ls-files | grep -i
     # Verbosely prune unreachable objects
     pr = prune -v
-    #############
     pb = pull --rebase
     pbom = pull --rebase origin master
-    #############
-    rbi = rebase --interactive
     # Concise status with branch
     sb = status -sb
     #############
@@ -40,9 +40,6 @@
     #############
     alias = !git config -l | grep alias | cut -c 7-
     snap = !git stash push 'snapshot: $(date)' && git stash apply 'stash@{0}'
-    # Fetch and merge branch without checkout
-    upd = !git fetch origin $1:$1
-
     # Interactive add
     ai = add -i
     #############
@@ -52,3 +49,4 @@
     rh = reset HEAD~
     rehh = reset --hard HEAD~
     resh = reset --soft HEAD~
+

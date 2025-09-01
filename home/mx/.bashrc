@@ -4,7 +4,7 @@ case $- in
       *) return;;
 esac
 
-if [ -f /usr/bin/fastfetch ]; then
+if [[ -f /usr/bin/fastfetch ]]; then
     fastfetch
 fi
 
@@ -13,7 +13,7 @@ HISTCONTROL=ignoreboth
 HISTSIZE=1000
 HISTFILESIZE=2000
 # don't put common commands in history
-HISTIGNORE="clear:exit:cd*:ll*"
+HISTIGNORE="clear:exit:history:l:l[alst]:rm*"
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -25,10 +25,10 @@ shopt -s checkwinsize
 shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+if [[ -z "${debian_chroot:-}" ]] && [[ -r /etc/debian_chroot ]]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
@@ -58,10 +58,17 @@ fi
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -FGhl --group-directories-first'
-alias la='ll -A'
-alias l='ls -CF'
+# some more ls/lsd aliases
+if [ -x "$(command -v lsd)" ]; then
+    alias l='lsd -F'
+    alias ll='lsd -Fl --group-directories-first'
+    alias la='ll -A'
+    alias lt='lsd -FA --group-directories-first --tree'
+else
+    alias l='ls -CF'
+    alias ll='ls -FGhl --group-directories-first'
+    alias la='ll -A'
+fi
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -95,3 +102,9 @@ fi
 
 # Add root only applications to PATH
 export PATH="/sbin:$PATH"
+
+# oh-my-posh stuff
+#eval "$(oh-my-posh init bash)"
+# Themes I like: catppuccin_frappe, amro, craver, tiwahu, pure
+#eval "$(~/.local/bin/oh-my-posh init bash --config ~/.cache/oh-my-posh/themes/tiwahu.omp.json)"
+

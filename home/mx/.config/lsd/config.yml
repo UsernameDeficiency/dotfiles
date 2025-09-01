@@ -37,7 +37,7 @@ color:
 # Possible values: date, locale, relative, '+<date_format>'
 # `date_format` will be a `strftime` formatted value. e.g. `date: '+%d %b %y %X'` will give you a date like this: 17 Jun 21 20:14:55
 #date: '+%F %R %y-%m-%d' # Four digits in year
-date: '+%y-%m-%d %R'
+date: '+%Y-%m-%d %R'
 
 # == Dereference ==
 # Whether to dereference symbolic links.
@@ -149,3 +149,4 @@ truncate-owner:
   after:
   # String to be appended to a name if truncated.
   marker: ""
+
