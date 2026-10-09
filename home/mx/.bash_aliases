@@ -17,7 +17,7 @@ if [[ -x "$(command -v lsd)" ]]; then
     alias l='lsd -F'
     alias ll='lsd -Fl --group-directories-first'
     alias la='ll -A'
-    alias lt='lsd -FA --group-directories-first --tree'
+    alias lt='lsd -FA --group-directories-first --tree --depth 4'
 else
     alias l='ls -CF'
     alias ll='ls -FGhl --group-directories-first'
